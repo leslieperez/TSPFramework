@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="shortcut icon" href="images/favicon.ico"/>
+    <title>TSP Framework - Información de Salida por Consola</title>
+  </head>
+  <body style="background-image:url(images/TSP\ Tour.png)">
+    <nav class="navbar navbar-center navbar-expand-lg navbar-light fixed-top" style="background-color:rgb(74, 74, 75);">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="https://www.inf.ucv.cl/"><img src="images/logo_escuela.png" style="width:120px;height:40px;"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+          <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+            <li class="nav-item">
+              <a class="nav-link active " aria-current="page" href="./index.html" style="color: white; font-weight: bold;">Inicio</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white">
+                Instalación
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                <li><a class="dropdown-item" href="./github.html">GitHub</a></li>
+                <li><a class="dropdown-item" href="./pip.html">Instalador de Paquete</a></li>
+                <li><a class="dropdown-item" href="./replit.html">Online</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white">
+                Parámetros
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                <li><a class="dropdown-item" href="./pgeneral.html">Generales</a></li>
+                <li><a class="dropdown-item" href="./psimulated.html">Simulated Annealing</a></li>
+                <li><a class="dropdown-item" href="./pgeneticos.html">Algoritmos Genéticos</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./interfaz.html" role="button" style="color: white">
+                Interfaz Gráfica
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white">
+                Formato Salida
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                <li><a class="dropdown-item" href="./sconsola.html">Consola</a></li>
+                <li><a class="dropdown-item" href="./sarchivos.html">Archivos</a></li>
+                <li><a class="dropdown-item" href="./slog.html">Registro Log</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white">
+                Módulos
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                <li><a class="dropdown-item" href="./mgeneral.html">Generales</a></li>
+                <li><a class="dropdown-item" href="./malgoritmos.html">Algoritmos</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white">
+                Marco Teórico
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                <li><a class="dropdown-item" href="./vendedorviajero.html">Problema del Vendedor Viajero</a></li>
+                <li><a class="dropdown-item" href="./metaheuristicas.html">Metaheurísticas</a></li>
+                <li><a class="dropdown-item" href="./simulatedannealing.html">Simulated Annealing</a></li>
+                <li><a class="dropdown-item" href="./algoritmogenetico.html">Algoritmos Genéticos</a></li>
+                <li><a class="dropdown-item" href="./localsearch.html">Local Search</a></li>
+                <li><a class="dropdown-item" href="./iteratedlocalsearch.html">Iterated Local Search</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="navbar-nav" style="--bs-scroll-height: 100px">
+            <a href="https://github.com/leslieperez/TSPFramework/raw/main/documentation/Manual.pdf" target="_blank">
+              <button type="button" class="btn btn-light" style="width:90px;height:45px;margin-right:5px; background-color: rgba(207, 207, 207, 0.925)">
+                  <img src="images/Manual.png" style="width:30px;height:30px;margin-top:-10px;">
+                  <p style="margin-top:-10px;font-weight: bold">Manual</p>
+              </button>
+            </a>
+          </ul>
+          <ul class="navbar-nav" style="--bs-scroll-height: 100px">
+            <a href="https://github.com/leslieperez/TSPFramework.git">
+              <button type="button" class="btn btn-light" style="width:90px;height:45px; background-color: rgba(207, 207, 207, 0.925)">
+                  <img src="images/GitHub-Logo.png" style="width:60px;height:30px">
+              </button>
+            </a>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div>
+        <div class="row">
+            <div class="mt-5 col-md-10 offset-md-1" style="background-color: rgba(207, 207, 207, 0.925);">
+                <h1 class="mt-4 d-flex justify-content-center">Información de Salida por Consola</h1>
+                <p></p>
+                <div class="col-md-10 offset-md-1">
+                  <p>
+                    La salida de información por la consola de comandos es generada de forma automática, 
+                    en ella se detallan información acerca de la instancia, las configuraciones de ejecución del algoritmo, 
+                    el recorrido en la en búsqueda de soluciones y la mejor solución final. Se destaca el uso de colores 
+                    en la consola que facilitan la lectura de los datos entregados.
+                  </p>
+                  <p>
+                    A continuación, se detalla la información entregada directamente por la consola:
+                  </p>
+                  <h5>Opciones Generales</h5>
+                  <p>
+                    En esta sección del código se entregan los valores de configuración comunes para los dos algoritmos, 
+                    Simulated Annealing y Algoritmos Genéticos.
+                  </p>
+                  <div class="d-flex justify-content-center">
+                    <img src="./images/Opciones Generales.JPG" alt="Opciones generales de ejecución">
+                  </div>
+                  <p class="mt-3">
+                    Los valores que son demostrados anteriormente pueden ser modificados por los <a href="/pgeneral.html">parámetros de 
+                      configuración generales</a> para posteriores ejecuciones.
+                  </p>
+                  <hr>
+                  <h5>Opciones para Simulated Annealing</h5>
+                  <p>
+                    Luego de los parámetros generales, se entrega la configuracion del algoritmo a ejecutar, siendo este caso Simulated Annealing.
+                  </p>
+                  <div class="d-flex justify-content-center">
+                    <img src="./images/Opciones Simulated.JPG" alt="Opciones de Simulated Annealing de ejecución">
+                  </div>
+                  <p class="mt-3">
+                    Los valores que son demostrados anteriormente pueden ser modificados por los <a href="/psimulated.html">parámetros de 
+                    configuración de Simulated Annealing</a> para posteriores ejecuciones.
+                  </p>
+                  <hr>
+                  <h5>Opciones para Algoritmos Genéticos</h5>
+                  <p>
+                    En caso de realizar una ejecución de Algoritmos Genéticos, se entrega los parámetros de configuracion de esta metaheurística.
+                  </p>
+                  <div class="d-flex justify-content-center">
+                    <img src="./images/Opciones Genetico.JPG" alt="Opciones de Algoritmos Geneticos de ejecución">
+                  </div>
+                  <p class="mt-3">
+                    Los valores que son demostrados anteriormente pueden ser modificados por los <a href="/pgeneticos.html">parámetros de 
+                    configuración de Algoritmos Genéticos</a> para posteriores ejecuciones.
+                  </p>
+                  <hr>
+                  <h5>Lectura de instancia y generacion de solución inicial</h5>
+                  <p>
+                    La lectura de las instancias en formato TSP genera una matriz que calcula la distancia entre los nodos y determina los vecinos más cercanos.
+                  </p>
+                  <div class="row">
+                    <div class="col-md-6 d-flex justify-content-center">
+                      <img src="./images/Lectura Simulated.JPG" alt="Lectura de instancias Simulated Annealing">
+                    </div>
+                    <div class="col-md-6 d-flex justify-content-center">
+                      <img src="./images/Lectura Genetico.JPG" alt="Lectura de instancias Algoritmos Geneticos">
+                    </div>
+                  </div>
+                  <p class="mt-3">
+                    En el caso de Simulated Annealing se genera una solución a partir de la configuracion del parámetro de generación de solución inicial. 
+                    Para Algoritmos Genéticos selecciona la mejor solución dentro de la población generada.
+                  </p>
+                  <hr>
+                  <h5>Ejecución de Simulated Annealing</h5>
+                  <p>
+                    El proceso de ejecución del algoritmo registra el número, temperatura y tiempo que lleva cada iteración, además de mostrar el proceso
+                    de actualización de la mejor solución actual, indicando cuando se acepta o no el criterio de metrópolis.
+                  </p>
+                  <div class="d-flex justify-content-center">
+                    <img src="./images/Ejecucion Simulated.JPG" alt="Ejecucion de Simulated Annealing" style="width:980px;height:350px">
+                  </div>
+                  <p class="mt-3">
+                    Luego de realizar la ejecución del código, se generan archivos de salida tipo <a href="">.txt</a> y <a href="">.csv</a> indicando el directorio de guardado. 
+                    Se incluye un nuevo registro en el <a href="">archivo log</a> de Simulated Annealing con la mejor solución encontrada.
+                  </p>
+                  <hr>
+                  <h5>Ejecución de Algoritmo Genetico</h5>
+                  <p>
+                    El proceso de ejecución presenta el numero de iteraciones, evaluaciones, tiempo por cada iteración, además del menor costo encontrado en la población, 
+                    incluyendo el promedio y desviación estándar del costo del conjunto de soluciones que representan la población.
+                  </p>
+                  <div class="d-flex justify-content-center">
+                    <img src="./images/Ejecucion Genetico.JPG" alt="Ejecucion de Algoritmo Genetico" style="width:770px;height:500px">
+                  </div>
+                  <p class="mt-3">
+                    De manera similar a la ejecucion de Simulated Annealing, se generan archivos de salida tipo <a href="">.txt</a> y <a href="">.csv</a> y el nuevo registro en el <a href="">log</a>.
+                  </p>
+                  <hr>
+                  <h5>Resumen de mejor solucion encontrada</h5>
+                  <p>
+                    Ya finalizado la ejecución del algoritmo, se entrega el costo y el tour de la mejor solución encontrada, agregando un resumen con la información necesaria para llegar al resultado.
+                  </p>
+                  <div class="row">
+                    <div class="col-md-6 d-flex justify-content-center">
+                      <img src="./images/Resumen Simulated.JPG" alt="Resumen solucion Simulated Annealing" style="width:430px;height:120px">
+                    </div>
+                    <div class="col-md-6 d-flex justify-content-center">
+                      <img src="./images/Resumen Genetico.JPG" alt="Resumen solucion Algoritmos Geneticos" style="width:430px;height:120px">
+                    </div>
+                  </div>
+                </div>
+                <hr>
+            </div>    
+        </div>
+        <div class="row">
+          <div class="col-md-12" style="background-color:rgb(74, 74, 75);">
+            <div class="mt-4 d-flex justify-content-center" style="color: antiquewhite; text-align: center;">
+              <dl>
+                <dt>Pontificia Universidad Católica de Valparaíso</dt>
+                <dt>Facultad de Ingeniería</dt>
+                <dt>Escuela de Ingeniería Informática</dt>
+              </dl>
+            </div>
+            <p class="mt-4 d-flex justify-content-center" style="color: antiquewhite;">
+              Desarrollado por Jorge Polanco & Javier del Canto
+            </p>
+          </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
