@@ -176,7 +176,7 @@ class AlgorithmsOptions():
     
     max_time = 600.0 # Tiempo de ejecucion máximo
     
-    initial_solution = InitialSolution.DETERMINISTIC # Solución Inicial
+    initial_solution = InitialSolution.RANDOM # Solución Inicial
     
     silent = False # Modo silencioso
 
