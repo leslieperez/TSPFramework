@@ -167,10 +167,10 @@ class SimulatedAnnealing():
                     current_tour.copy(neighbor_tour)
                     
                    
-                    details += f"{bcolors.FAIL} Se acepta peor costo por crit. de metrópolis: {neighbor_tour.cost}{bcolors.ENDC}"
+                    details += f"{bcolors.FAIL} Se acepta peor costo: {neighbor_tour.cost}{bcolors.ENDC}"
                 else:
                    # No se acepta la solución
-                    details += f"{bcolors.WARNING} No se acepta peor costo por crit. de metrópolis: {neighbor_tour.cost}{bcolors.ENDC}{bcolors.OKGREEN} -> Solución actual: {current_tour.cost}{bcolors.ENDC}"
+                    details += f"{bcolors.WARNING} No se acepta peor costo: {neighbor_tour.cost}{bcolors.ENDC}{bcolors.OKGREEN} -> Solución actual: {current_tour.cost}{bcolors.ENDC}"
 
                     neighbor_tour.copy(current_tour)
 
