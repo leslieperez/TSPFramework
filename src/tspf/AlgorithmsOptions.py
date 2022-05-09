@@ -168,13 +168,13 @@ class AlgorithmsOptions():
      
     metaheuristic = MHType.SA # Tipo de metaheurística a ejecutar   
      
-    move = TSPMove.TWO_OPT # Tipo del movimiento para la metaheurística o bien tipo de busqueda Local Search
+    move = TSPMove.SWAP # Tipo del movimiento para la metaheurística o bien tipo de busqueda Local Search
     
     max_evaluations = 1000 # Evaluaciones máximas
     
-    max_iterations = 20 # Numero de iteraciones máximas
+    max_iterations = 200 # Numero de iteraciones máximas
     
-    max_time = 60.0 # Tiempo de ejecucion máximo
+    max_time = 600.0 # Tiempo de ejecucion máximo
     
     initial_solution = InitialSolution.RANDOM # Solución Inicial
     
