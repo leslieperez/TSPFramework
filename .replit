@@ -1,0 +1,41 @@
+# Presione el boton de arriba para ejecutar y deterner la ejecucion del framework
+
+# Parametros disponibles:
+# Tipo flag
+# -s / --silent , Ejecuta sin mostrar los cambios en cada ciclo de los algoritmos
+# -vi / --visualize, Muestra la visualizacion de trayectoria a la mejor solucion de forma grafica
+# -re / --replit, Si se ejecuta en Replit.com ya que la visualizacion puede tener inconvenientes
+
+# PARAMETROS GENERALES
+# -mh  / --metaheuristic, Tipo de Metaherisitica a usar: SA: Simulated Annealing GA: Genetic Algorithm
+# -i / --instance, Archivo con la instancia a utilizar en formato TSPLIB: <PATH>
+# -se / --seed, Numero para ser usado como semilla para el generador de numeros aleatorios: INT_MAX
+# -sol / --solution, Nombre del archivo de salida para la solucion y trayectoria
+# -mhm / --move, Tipo de movimiento a utilizar en la heuristica [ 2opt | swap ]
+# -e / --evaluations, Numero maximo de soluciones a evaluar: INT_MAX
+# -it / --iterations, Numero maximo de iteraciones a realizar: INT_MAX 
+# -t / --time, Limite de tiempo de ejecucion en segundos: INT_MAX
+
+# PARAMETROS DE SIMULATED ANNEALING
+# -is / --insol, Solucion inicial [ RANDOM | NEAREST_N | DETERMINISTIC ]
+# -a / --alpha, Parametro alfa para el esquema geometrico ]0,1]
+# -t0 / --tini, Temperatura inicial ]0,DOUBLE_MAX]
+# -tm / --tmin, Temperatura minima ]0,DOUBLE_MAX]
+# -c / --cooling, Esquema de enfriamiento de la temperatura [ geometric | log | linear ]
+
+# PARAMETROS DE ALGORITMO GENETICO
+# -p / --psize, Cantidad de individuos de la poblacion ]0,INT_MAX]
+# -o / --osize, Cantidad de hijos a generar ]0,INT_MAX]
+# -ps / --pselection, "Operador de seleccion de padres [ random | best | roulette | tournament ]
+# -cr / --crossover, Operador de crossover [ ox | opx | pmx ]
+# -mu / --mutation, Operador de mutacion [ swap | 2opt ]
+# -mp / --mprobability, Probabilidad de mutacion [0.0,1.0]
+# -gs / --gselection, Operador de seleccion de poblacion [ random | best | roulette | tournament ]
+# -g / --gstrategy, Estrategia de seleccion de padres [ mu,lambda | mu+lambda ]
+
+# Modifique el apartado 'run' con los parametros que desee modificar (no borrar --replit)
+# ejemplo: run = "python tspf.py --replit -mh sa -c linear -is NEAREST_N -i instances/eil51.tsp --visualize" 
+
+language = "python3"
+#run = "python tspf.py --replit -mh ils --move 3opt -i instances/burma14.tsp --gui --visualize"
+run = "python tspf.py --replit --gui"
