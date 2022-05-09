@@ -156,7 +156,7 @@ class SimulatedAnnealing():
                                         temperature=temperature) ) 
 
 
-                details += f"{bcolors.OKGREEN} Mejor costo encontrado: {current_tour.cost}{bcolors.ENDC}"
+                details += f"{bcolors.OKGREEN} Costo encontrado: {current_tour.cost}{bcolors.ENDC}"
 
             else:
                 # Calcular criterio de aceptacion
