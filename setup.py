@@ -7,7 +7,7 @@ setup(
     long_description=open('README.md').read(),
     author='Javier del Canto, Jorge Polanco',
     author_email='javier.delcanto.m@mail.pucv.cl, jorge.polanco.sanmartin@gmail.com',
-    url='https://github.com/Javernaver/TSP-Framework',
+    url='https://github.com/leslieperez/TSP-Framework',
     scripts=['tspf.py'],
     packages=['src.tspf','src.tspf.Algorithms', 'src.tspf.Tools'],
     install_requires=['matplotlib', 'prettytable', 'tkinter'], 
