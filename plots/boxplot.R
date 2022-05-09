@@ -2,7 +2,7 @@
 
 # Escriba aqui los resultados de las ejecuciones de dos algoritmos
 # para ser comparados
-resultados1 <- c(1169,1063,987,1039,1044,1099,1105,975,1156,991) #orden dado
+resultados1 <- c(1169,1063,987,1039,1044,1099,1105,975,1156,991) #orden aleatorio
 resultados2 <- c(553,623,597,554,558, 552,528,573,559,564) #vecino mas cercano
 
 # Resultados para parametro alfa
@@ -16,7 +16,7 @@ plotfile = "ejemplo-boxplot.png"
 all.data = cbind(resultados1, resultados2)
 
 # Nombres de las pruebas o algoritmos
-colnames (all.data) <- c("Orden dado", "Vecino mas cercano")
+colnames (all.data) <- c("Orden aleatorio", "Vecino mas cercano")
 #colnames (all.data) <- c("0.98", "0.99")
 
 # data.matrix is a matrix or a data frame
