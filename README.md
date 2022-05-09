@@ -1,4 +1,4 @@
-# Framework de algoritmos para resolver el Problema del Vendedor Viajero[![Run on Repl.it](https://repl.it/badge/github/leslieperez/TSPFramework)](https://repl.it/github/leslieperez/TSPFramework)
+# Framework de algoritmos para resolver el Problema del Vendedor Viajero [![Run on Repl.it](https://repl.it/badge/github/leslieperez/TSPFramework)](https://repl.it/github/leslieperez/TSPFramework)
 
 Framework para resolver el problema del vendedor viajero aplicando algoritmos de búsqueda como Simulated Annealing, Algoritmo Genético, Local Search e Iterated Local Search.
 
