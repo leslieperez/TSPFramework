@@ -170,9 +170,9 @@ class AlgorithmsOptions():
      
     move = TSPMove.SWAP # Tipo del movimiento para la metaheurística o bien tipo de busqueda Local Search
     
-    max_evaluations = 1000 # Evaluaciones máximas
+    max_evaluations = 10000 # Evaluaciones máximas
     
-    max_iterations = 200 # Numero de iteraciones máximas
+    max_iterations = 10000 # Numero de iteraciones máximas
     
     max_time = 600.0 # Tiempo de ejecucion máximo
     
