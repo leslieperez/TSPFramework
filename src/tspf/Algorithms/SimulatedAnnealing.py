@@ -108,12 +108,15 @@ class SimulatedAnnealing():
  
         current_tour = Tour(tour=first_solution) # variable del tour actual 
         neighbor_tour = Tour(tour=first_solution) # variable del tour vecino generado 
+        update_flag = False
         
         self.best_tour.copy(first_solution) # solución inicial se guarda como la mejor hasta el momento
         # Guardar trayectoria Inicial
         self.trajectory.append( Trajectory(
                                 tour=self.best_tour.current.copy(),
                                 cost=self.best_tour.cost, 
+                                btour=self.best_tour.current.copy(),
+                                best=self.best_tour.cost,
                                 iterations=self.evaluations-1, 
                                 evaluations=self.evaluations-1,
                                 temperature=temperature) ) 
@@ -121,6 +124,8 @@ class SimulatedAnnealing():
             self.trajectory.append( Trajectory(
                                     tour=self.best_tour.current.copy(),
                                     cost=self.best_tour.cost, 
+                                    btour=self.best_tour.current.copy(),
+                                    best=self.best_tour.cost,
                                     iterations=self.evaluations-1, 
                                     evaluations=self.evaluations-1,
                                     temperature=temperature) ) 
@@ -138,7 +143,7 @@ class SimulatedAnnealing():
         while (self.terminationCondition(temperature, self.evaluations, end-start)):
 
             details = '' # variable de texto con los detalles
-            
+            update_flag = False
             
             # Generar un vecino aleatoriamente a traves de un movimiento
             neighbor_tour.randomMove(self.move_type)
@@ -147,17 +152,8 @@ class SimulatedAnnealing():
             if (neighbor_tour.cost < current_tour.cost):
                 # Mejor solución encontrada
                 current_tour.copy(neighbor_tour)
-                # Guardar trayectoria Final
-                self.trajectory.append( Trajectory(
-                                        tour=current_tour.current.copy(),
-                                        cost=current_tour.cost, 
-                                        iterations=self.evaluations, 
-                                        evaluations=self.evaluations,
-                                        temperature=temperature) ) 
-
-
                 details += f"{bcolors.OKGREEN} Costo encontrado: {current_tour.cost}{bcolors.ENDC}"
-
+                update_flag = True
             else:
                 # Calcular criterio de aceptacion
                 prob = self.getAcceptanceProbability(neighbor_tour.cost, current_tour.cost, temperature)
@@ -165,9 +161,9 @@ class SimulatedAnnealing():
                 if (utilities.random.random() <= prob):
                     # Se acepta la solución peor
                     current_tour.copy(neighbor_tour)
-                    
                    
                     details += f"{bcolors.FAIL} Se acepta peor costo: {neighbor_tour.cost}{bcolors.ENDC}"
+                    update_flag = True
                 else:
                    # No se acepta la solución
                     details += f"{bcolors.WARNING} No se acepta peor costo: {neighbor_tour.cost}{bcolors.ENDC}{bcolors.OKGREEN} -> Solución actual: {current_tour.cost}{bcolors.ENDC}"
@@ -180,6 +176,17 @@ class SimulatedAnnealing():
                 details += f"{bcolors.OKGREEN} -> ¡Mejor solución global encontrada! {bcolors.ENDC}"
 
                 self.best_tour.copy(current_tour)
+
+            if update_flag:
+                # Guardar trayectoria Final
+                self.trajectory.append( Trajectory(
+                                        tour=current_tour.current.copy(),
+                                        cost=current_tour.cost, 
+                                        btour=self.best_tour.current.copy(),
+                                        best=self.best_tour.cost,
+                                        iterations=self.evaluations, 
+                                        evaluations=self.evaluations,
+                                        temperature=temperature) ) 
 
             # Agregar la informacion a la tabla
             table.add_row([f"{bcolors.BOLD}{self.evaluations}", 
@@ -199,14 +206,15 @@ class SimulatedAnnealing():
         self.trajectory.append( Trajectory(
                                 tour=self.best_tour.current.copy(),
                                 cost=self.best_tour.cost, 
+                                btour=self.best_tour.current.copy(),
+                                best=self.best_tour.cost, 
                                 iterations=self.evaluations-1, 
                                 evaluations=self.evaluations-1,
                                 temperature=temperature) ) 
 
         # Mostrar tabla
         if not self.options.silent:
-            print(table)
-            
+            print(table)            
 		
 
     def terminationCondition(self, termperature: float, evaluations: int, time: float) -> bool:

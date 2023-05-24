@@ -44,6 +44,10 @@ class Trajectory():
             lista con el recorrido
         cost : int
             calidad del recorrido
+        btour: list
+            lista con el mejor recorrido
+        best : int
+            calidad del mejor recorrido 
         iterations : int
             numero de iteraciones al llegar a la solución
         evaluations : int
@@ -61,11 +65,13 @@ class Trajectory():
                             3542, 10, 15,
                             temperature=950.31)
     """
-    def __init__(self, tour: list, cost: int, iterations: int,
+    def __init__(self, tour: list, cost: int, btour: list, best: int, iterations: int,
                  evaluations: int, average: float = 0.0, deviation: float = 0.0,
                  temperature: float = -1.0, worst: int = -1) -> None:
         self.tour = tour
         self.cost = cost
+        self.btour = btour
+        self.best = best
         self.iterations = iterations
         self.evaluations = evaluations
         self.worst = worst # peor costo de la población (algoritmo genetico)
@@ -123,7 +129,7 @@ def printTraToFile(trajectoryFile: str, trajectory: list) -> None:
         csvfile = open(trajectoryFile, 'w', newline="\n")
 
         # Headers
-        fields = ["Iterations","Evaluations","cost","solution"]
+        fields = ["Iterations","Evaluations","Cost","Solution", "Best"]
         writer = csv.DictWriter(csvfile, delimiter=';', fieldnames=fields)
         writer.writeheader()
         # crear texto con la solución separando cada elemento con espacios y luego guardarlo en el archivo
@@ -133,8 +139,9 @@ def printTraToFile(trajectoryFile: str, trajectory: list) -> None:
             writer.writerow({
                 "Iterations": tra.iterations, 
                 "Evaluations": tra.evaluations,
-                "cost": tra.cost, 
-                "solution": sol
+                "Cost": tra.cost, 
+                "Solution": sol,
+                "Best": tra.best
             })
 
         csvfile.close()

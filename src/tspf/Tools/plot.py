@@ -51,7 +51,7 @@ class Graph(Frame):
         
         self.x, self.y = [], [] # lista de coordenadas x e y
         self.annotations = [] # lista de anotaciones en el grafico que serian las numeraciones, flechas de union, etc.
-        self.iterations, self.cost, self.avg, self.worst = [], [], [], []
+        self.iterations, self.cost, self.best, self.avg, self.worst = [], [], [], [], []
         self.initWindow()
         
         #plt.show()
@@ -120,7 +120,7 @@ class Graph(Frame):
         #ax.set_ylabel('Eje Y')
         
         self.ax1.grid(color='black', linestyle='-', linewidth=0.1)
-        self.ax1.set_title('Variacion por iteración')
+        self.ax1.set_title('Convergencia')
         self.ax1.set_ylabel('Costo')
         self.ax1.set_xlabel('Iteraciones\n\n')
         
@@ -150,10 +150,11 @@ class Graph(Frame):
         textstr = '\n'.join((
         f'Tour: {self.trajectory[i].tour}',
         f'Costo: {self.trajectory[i].cost}',
+        f'Mejor Costo: {self.trajectory[i].best}',
         f'Iteraciones: {self.trajectory[i].iterations}',
         f'Evaluaciones: {self.trajectory[i].evaluations}'
         ))
-        
+      
         # si hay temperatura
         if self.trajectory[i].temperature >= 0:
             textstr += f'\nTemperatura: {self.trajectory[i].temperature:.2f}'
@@ -193,21 +194,26 @@ class Graph(Frame):
         if len(self.coords) > MAXLEN:
             self.ax1.plot([tra.iterations for tra in self.trajectory],
                     [tra.cost for tra in self.trajectory],
-                    label="Mejor Actual", linestyle='-', marker='', color='green')
+                    label="Actual", linestyle='-', marker='', color='black')
+            self.ax1.plot([tra.iterations for tra in self.trajectory],
+                    [tra.best for tra in self.trajectory],
+                    label="Mejor", linestyle='-', marker='', color='green')
             return
         
         self.ax1.cla()
         
         self.ax1.grid(color='black', linestyle='-', linewidth=0.1)
-        self.ax1.set_title('Variacion por iteración')
+        self.ax1.set_title('Convergencia')
         self.ax1.set_ylabel('Costo')
         self.ax1.set_xlabel('Iteraciones')
         #x_data = [tra.iterations for tra in trajectory]
         #y_data = [tra.cost for tra in trajectory]
         self.iterations.append(self.trajectory[i].iterations)
         self.cost.append(self.trajectory[i].cost)
+        self.best.append(self.trajectory[i].best)
         
-        self.ax1.plot(self.iterations, self.cost, label="Mejor", linestyle='-', marker='', color='green')
+        self.ax1.plot(self.iterations, self.cost, label="Actual", linestyle='-', marker='', color='black')
+        self.ax1.plot(self.iterations, self.best, label="Mejor", linestyle='-', marker='', color='green')
 
         if self.trajectory[i].average > 0 and self.trajectory[i].worst > 0:
             self.avg.append(self.trajectory[i].average)

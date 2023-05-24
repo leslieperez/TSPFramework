@@ -142,14 +142,24 @@ class GeneticAlgorithm():
         
         # Guardar trayectoria
         self.trajectory.append( Trajectory(tour=self.best_tour.current.copy(),
-                                cost=self.best_tour.cost, iterations=0, evaluations=self.evaluations,
-                                average=population.getAverage(), deviation=population.getDeviation(),
-                                worst=population.getWorstTour().cost) )
+                                           cost=self.best_tour.cost, 
+                                           btour=self.best_tour.current.copy(),
+                                           best=self.best_tour.cost, 
+                                           iterations=0, 
+                                           evaluations=self.evaluations,
+                                           average=population.getAverage(), 
+                                           deviation=population.getDeviation(),
+                                           worst=population.getWorstTour().cost) )
         if not self.options.replit:
             self.trajectory.append( Trajectory(tour=self.best_tour.current.copy(),
-                                    cost=self.best_tour.cost, iterations=0, evaluations=self.evaluations,
-                                    average=population.getAverage(), deviation=population.getDeviation(),
-                                    worst=population.getWorstTour().cost) )
+                                               cost=self.best_tour.cost, 
+                                               btour=self.best_tour.current.copy(),
+                                               best=self.best_tour.cost,
+                                               iterations=0, 
+                                               evaluations=self.evaluations, 
+                                               average=population.getAverage(), 
+                                               deviation=population.getDeviation(), 
+                                               worst=population.getWorstTour().cost) )
         self.evaluations += self.offspring_size
 
         # tiempo para iteraciones y condicion de termino por tiempo
@@ -179,15 +189,20 @@ class GeneticAlgorithm():
                     
                 self.best_tour.copy(offspring.getBestTour())
                 
-                # Guardar trayectoria
-                self.trajectory.append( Trajectory(tour=self.best_tour.current.copy(),
-                                        cost=self.best_tour.cost, iterations=self.iterations, evaluations=self.evaluations,
-                                        average=population.getAverage(), deviation=population.getDeviation(),
-                                        worst=population.getWorstTour().cost) ) 
-                
             else: 
                 
                 details = f"{bcolors.OKBLUE} Mejor actual: {self.best_tour.cost}{bcolors.ENDC}"
+
+                            # Guardar trayectoria
+            self.trajectory.append( Trajectory(tour=offspring.getBestTour().current.copy(),
+                                               cost=offspring.getBestTour().cost, 
+                                               btour=self.best_tour.current.copy(),
+                                               best=self.best_tour.cost, 
+                                               iterations=self.iterations, 
+                                               evaluations=self.evaluations,
+                                               average=population.getAverage(), 
+                                               deviation=population.getDeviation(), 
+                                               worst=population.getWorstTour().cost) ) 
 
             # Agregar la informacion de la iteracion a la tabla la tabla
             table.add_row([f"{bcolors.BOLD}{self.iterations}", 
@@ -227,26 +242,6 @@ class GeneticAlgorithm():
 
         # actualizar tiempo total de búsqueda de Algoritmo Genético
         self.total_time = timer() - start
-
-
-    def terminationCondition(self, iterations: int, evaluations: int, time: float) -> bool:
-        """ Condicion de termino para el ciclo principal de Algoritmo Genético, 
-        basado en los criterios de iteraciones, evaluaciones y tiempo, devuelve verdadero o falso si se debe continuar o no"""
-        
-        # Criterio de termino de las iteraciones
-        if (self.options.max_iterations > 0):
-            if (iterations > self.options.max_iterations):
-                return False
-        # Criterio de termino de las evaluciones
-        if (self.options.max_evaluations > 0):
-            if (evaluations > self.options.max_evaluations):
-                return False
-        # Criterio de termino por tiempo
-        if (self.options.max_time > 0):
-            if (time > self.options.max_time):
-                return False
-        
-        return True
 
     def printSolFile(self, outputSol: str) -> None:
         """ Guarda la solución en archivo de texto"""
