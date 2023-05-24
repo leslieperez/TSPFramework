@@ -118,12 +118,16 @@ class IteratedLocalSearch():
         self.trajectory.append( Trajectory(
                                 tour=self.best_tour.current.copy(),
                                 cost=self.best_tour.cost, 
+                                btour=self.best_tour.current.copy(),
+                                best=self.best_tour.cost,
                                 iterations=self.iterations-1, 
                                 evaluations=self.evaluations-1) )
         if not self.options.replit:
             self.trajectory.append( Trajectory(
                                     tour=self.best_tour.current.copy(),
                                     cost=self.best_tour.cost, 
+                                    btour=self.best_tour.current.copy(),
+                                    best=self.best_tour.cost,
                                     iterations=self.iterations-1, 
                                     evaluations=self.evaluations-1) )
                                 
@@ -174,17 +178,17 @@ class IteratedLocalSearch():
                                 
                 details = f"{bcolors.OKGREEN} Mejor solución encontrada: {current_tour.cost}{bcolors.ENDC}" 
                 
-                
-                self.trajectory.append( Trajectory(
-                                tour=current_tour.current.copy(),
-                                cost=current_tour.cost, 
-                                iterations=self.iterations, 
-                                evaluations=solver.evaluations) )
-                
                 self.best_tour.copy(current_tour)
                 
             else:
                 details = f"{bcolors.OKBLUE} Solución actual: {current_tour.cost}{bcolors.ENDC}"
+
+            self.trajectory.append( Trajectory(tour=current_tour.current.copy(),
+                                               cost=current_tour.cost, 
+                                               btour=self.best_tour.current.copy(),
+                                               best=self.best_tour.cost, 
+                                               iterations=self.iterations, 
+                                               evaluations=solver.evaluations) )
                
             
             table.add_row([f"{bcolors.BOLD}{self.iterations}", 
@@ -209,9 +213,12 @@ class IteratedLocalSearch():
         self.trajectory.append( Trajectory(
                                 tour=self.best_tour.current.copy(),
                                 cost=self.best_tour.cost, 
+                                btour=self.best_tour.current.copy(),
+                                best=self.best_tour.cost, 
                                 iterations=self.iterations-1,
                                 evaluations=solver.evaluations-1) )
 
+  
     
 
 

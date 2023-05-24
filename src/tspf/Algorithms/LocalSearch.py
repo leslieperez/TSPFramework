@@ -106,12 +106,16 @@ class LocalSearch():
         self.trajectory.append( Trajectory(
                                 tour=self.best_tour.current.copy(),
                                 cost=self.best_tour.cost, 
+                                btour=self.best_tour.current.copy(),
+                                best=self.best_tour.cost,
                                 iterations=self.evaluations-1, 
                                 evaluations=self.evaluations-1) )
         if not self.options.replit:
             self.trajectory.append( Trajectory(
                                     tour=self.best_tour.current.copy(),
                                     cost=self.best_tour.cost, 
+                                    btour=self.best_tour.current.copy(),
+                                    best=self.best_tour.cost,
                                     iterations=self.evaluations-1, 
                                     evaluations=self.evaluations-1) )
                                 
@@ -143,6 +147,8 @@ class LocalSearch():
         self.trajectory.append( Trajectory(
                             tour=current_tour.current.copy(),
                             cost=current_tour.cost, 
+                            btour=self.best_tour.current.copy(),
+                            best=self.best_tour.cost,
                             iterations=self.evaluations, 
                             evaluations=self.evaluations) )
 
@@ -219,6 +225,8 @@ class LocalSearch():
                 self.trajectory.append( Trajectory(
                                     tour=tour.current.copy(),
                                     cost=tour.cost, 
+                                    btour=self.best_tour.current.copy(),
+                                    best=self.best_tour.cost,
                                     iterations=self.evaluations, 
                                     evaluations=self.evaluations) )
 
@@ -300,6 +308,8 @@ class LocalSearch():
                 self.trajectory.append( Trajectory(
                                     tour=tour.current.copy(),
                                     cost=tour.cost, 
+                                    btour=self.best_tour.current.copy(),
+                                    best=self.best_tour.cost,
                                     iterations=self.evaluations, 
                                     evaluations=self.evaluations) )
     
@@ -349,6 +359,8 @@ class LocalSearch():
                             self.trajectory.append( Trajectory(
                                     tour=tour.current.copy(),
                                     cost=tour.cost, 
+                                    btour=self.best_tour.current.copy(),
+                                    best=self.best_tour.cost,
                                     iterations=self.evaluations, 
                                     evaluations=self.evaluations) )
                                 
