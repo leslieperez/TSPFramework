@@ -355,7 +355,8 @@ class LocalSearch():
                         delta = tour.bestThreeOptSwap(i, j, k)
                         
                         if delta < 0:
-                            
+                            self.best_tour.copy(tour)
+
                             self.trajectory.append( Trajectory(
                                     tour=tour.current.copy(),
                                     cost=tour.cost, 
@@ -363,9 +364,7 @@ class LocalSearch():
                                     best=self.best_tour.cost,
                                     iterations=self.evaluations, 
                                     evaluations=self.evaluations) )
-                                
-                            self.best_tour.copy(tour)
-                                   
+                                                                   
                             improved = True
                             details = f"{bcolors.OKGREEN} Solución actual con mejor costo encontrada: {tour.cost}{bcolors.ENDC}"
                         else:
