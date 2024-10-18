@@ -37,7 +37,7 @@
 # ejemplo: run = "python tspf.py --replit -mh sa -c linear -is NEAREST_N -i instances/eil51.tsp --visualize" 
 
 language = "python3"
-modules = ["python-3.8", "libstdcxx5"]
+modules = ["python-3.8", "cpp-clang14"]
 
 #run = "python tspf.py --replit -mh ils --move 3opt -i instances/burma14.tsp --gui --visualize"
 #run = "python tspf.py --replit --gui"
