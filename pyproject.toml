@@ -8,6 +8,7 @@ authors = ["Javernaver <<>>"]
 python = "^3.8"
 beautifultable = "^1.0.1"
 prettytable = "^2.4.0"
+matplotlib = "^3.4.3"
 
 [tool.poetry.dev-dependencies]
 
